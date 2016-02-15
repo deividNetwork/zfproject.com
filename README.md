@@ -1,3 +1,4 @@
-- ZF Project
-- ==========================
+- ZF PROJECT
+- ===================
+
 - Zend application testing
