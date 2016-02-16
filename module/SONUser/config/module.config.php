@@ -11,7 +11,39 @@
                         'defaults' => array(
                             '__NAMESPACE__' => 'SONUser\Controller',
                             'controller' => 'Index',
-                            'action' => 'register',
+                            'action' => 'index',
+                        )
+                    )
+                ),
+                'create-user' => array(
+                    'type' => 'Literal',
+                    'options' => array(
+                        'route' => '/user/create',
+                        'defaults' => array(
+                            '__NAMESPACE__' => 'SONUser\Controller',
+                            'controller' => 'Index',
+                            'action' => 'create',
+                        )
+                    )
+                ),
+                'list-user' => array(
+                    'type' => 'Literal',
+                    'options' => array(
+                        'route' => '/user/list',
+                        'defaults' => array(
+                            '__NAMESPACE__' => 'SONUser\Controller',
+                            'controller' => 'Index',
+                            'action' => 'list'
+                        )
+                    )
+                ),
+                'change-user' => array(
+                    'type' => 'Segment',
+                    'options' => array(
+                        'route'    => '/user/[:action]/[:id]',
+                        'defaults' => array(
+                            '__NAMESPACE__' => 'SONUser\Controller',
+                            'controller' => 'Index'
                         )
                     )
                 )
@@ -51,9 +83,9 @@
                         __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
                     )
                 )
+            ),
+            'fixture' => array(
+                'SONUser_fixture' => __DIR__ . '/../src/SONUser/Fixture',
             )
-        ),
-        'data-fixture' => array(
-            'SONUser_fixture' => __DIR__ . '/../src/SONUser/Fixture'
         )
     );

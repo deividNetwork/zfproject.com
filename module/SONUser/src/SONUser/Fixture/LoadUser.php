@@ -18,6 +18,9 @@
 
                 $manager->persist($user);
                 $manager->flush();
+
+                // store reference of admin-user for other Fixtures
+                $this->addReference('sonuser_users', $user);
             }
             catch (Exception $e) {
                 echo $e->getMessage();

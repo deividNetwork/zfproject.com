@@ -1,0 +1,65 @@
+<table width="100%">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Ativo</th>
+            <th>Criado em</th>
+            <th>Atualizado em</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($this->list as $item): ?>
+            <tr>
+                <td><?php echo $item->getId() ?></td>
+                <td><?php echo $item->getNome() ?></td>
+                <td><?php echo $item->getEmail() ?></td>
+                <td>
+                    <?php
+                        if ($item->isActive()) {
+                            echo "sim";
+                        }
+                        else {
+                            echo "não";
+                        }
+                    ?>
+                </td>
+                <td>
+                    <?php
+                        echo $item->getCreatedAt()
+                                  ->format('d/m/Y');
+                    ?>
+                </td>
+                <td>
+                    <?php
+                        echo $item->getUpdateAt()
+                                  ->format('d/m/Y');
+                    ?>
+                </td>
+                <td>
+                    <a href="<?php echo $this->url('change-user', array(
+                        'action' => 'edit',
+                        'id' => $item->getId()
+                    )); ?>">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                    </a>
+                </td>
+                <td>
+                    <a href="<?php echo $this->url('change-user', array(
+                        'action' => 'delete',
+                        'id' => $item->getId()
+                    )); ?>">
+                        <i class="glyphicon glyphicon-remove"></i>
+                    </a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+
+        <?php if (count($this->list) <= 0): ?>
+            <td colspan="8">Nenhum usuário registrado até agora.</td>
+        <?php endif; ?>
+    </tbody>
+</table>

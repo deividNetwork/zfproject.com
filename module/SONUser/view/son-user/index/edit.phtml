@@ -1,0 +1,50 @@
+<?php
+    $checked_yes = "";
+    $checked_no = "checked";
+
+    if ($this->user->isActive()) {
+        $checked_yes = "checked";
+        $checked_no = "";
+    }
+?>
+<form action="" method="post">
+    <div class="row">
+        <div class="col-md-6">
+            <label for="nome">
+                <input type="text" name="nome" value="<?php echo $this->user->getNome() ?>" placeholder="Nome">
+            </label>
+        </div>
+        <div class="col-md-6">
+            <label for="email">
+                <input type="email" name="email" value="<?php echo $this->user->getEmail() ?>" placeholder="Email">
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="">
+                <input type="password" name="senha" placeholder="Senha">
+            </label>
+        </div>
+        <div class="col-md-6">
+            <label for="checked_yes">
+                <input type="radio" id="checked_yes" name="active" <?php echo $checked_yes ?> value="1">
+                <span>Sim</span>
+            </label>
+            <label for="checked_no">
+                <input type="radio" id="checked_no" name="active" <?php echo $checked_no ?> value="0">
+                <span>Não</span>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <label for="">
+                <button>
+                    <i class="glyphicon glyphicon-ok"></i>&nbsp;
+                    Atualizar
+                </button>
+            </label>
+        </div>
+    </div>
+</form>
