@@ -1,4 +1,4 @@
 ZF PROJECT
 ===================
 
-Zend application testing
+Sample C.R.U.D application testing...
